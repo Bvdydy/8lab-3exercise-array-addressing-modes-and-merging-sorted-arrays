@@ -1,4 +1,5 @@
-﻿#include "stdafx.h"
+﻿// exercise3_v2.cpp
+#include "stdafx.h"
 #include <iostream>
 using namespace std;
 
@@ -8,20 +9,20 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
 
-    cout << "\n=== Вариант 1: Статический + Индексная ===" << endl;
+    cout << "\n=== Вариант 2: Статический + Указатель ===" << endl;
 
     // Статический массив
-    int staticArray1[SIZE];
+    int staticArray2[SIZE];
 
-    // Заполнение с индексной адресацией
-    for (int i = 0; i < SIZE; i++) {
-        staticArray1[i] = i * i;
+    // Заполнение с указательной адресацией
+    for (int* ptr = staticArray2, i = 0; i < SIZE; i++, ptr++) {
+        *ptr = i * i;
     }
 
-    // Вывод с индексной адресацией
+    // Вывод с указательной адресацией
     cout << "Заполнение: ";
-    for (int i = 0; i < SIZE; i++) {
-        cout << staticArray1[i] << " ";
+    for (int* ptr = staticArray2, i = 0; i < SIZE; i++, ptr++) {
+        cout << *ptr << " ";
     }
     cout << endl;
 
